@@ -242,8 +242,10 @@ function drawColor(binary, color1, color2){
         for (let x = 0; x < width; x++) {
             if (x === y*lines.length) {
                 result += color2;
+                result += lines[y][x];
             } else if (x === width - y * lines.length) {
                 result += color1;
+                result += lines[y][x];
             } else {
                 result += lines[y][x];
             }

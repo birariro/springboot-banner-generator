@@ -83,7 +83,7 @@ const App = () => {
                     id="bannerText"
                     value={bannerText}
                     onChange={handleBannerTextChange}
-                    placeholder="영문 배너 텍스트를 입력하세요"
+                    placeholder="Input Only English Text"
                     style={{ width: '100%', padding: '10px' }}
                 />
             </div>
@@ -91,7 +91,6 @@ const App = () => {
                 <div className="centered">
                     <label>first color</label>
                     <GithubPicker color={color1} onChangeComplete={(color) => handleColor1Change(color)} colors={ColorConverter.allowedColors} triangle={"hide"}/>
-
 
                 </div>
                 <div className="centered">
@@ -108,8 +107,8 @@ const App = () => {
                 <pre>{outputText}</pre>
             </div>
             <div className="description" hidden={!fileText.trim()}>
-                다운로드한 파일을
-                'src/main/resources' 에 추가
+                The downloaded file path is
+                'src/main/resources'
             </div>
         </div>
     );
