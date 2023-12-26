@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import { GithubPicker } from 'react-color';
 import './App.css';
-import {drawColor, StringToBinary} from "./core/StringConverter";
-import {allowedColors,colorToSpringAnsi} from "./core/ColorConverter";
+import StringConverter from "./core/StringConverter";
+import ColorConverter from "./core/ColorConverter";
 
 const App = () => {
     const [bannerText, setBannerText] = useState('');
@@ -40,11 +40,11 @@ const App = () => {
         }
         const generatedOutput = `배너 텍스트: ${bannerText}, 색상 1: ${color1}, 색상 2: ${color2}`;
         console.log(generatedOutput);
-        let binaryArray = StringToBinary(bannerText);
+        let binaryArray = StringConverter.StringToBinary(bannerText);
         let _output = binaryArrayToString(binaryArray);
 
         setOutputText(_output);
-        setFileText(drawColor(_output,colorToSpringAnsi(color1),colorToSpringAnsi(color2)));
+        setFileText(StringConverter.drawColor(_output,ColorConverter.colorToSpringAnsi(color1),ColorConverter.colorToSpringAnsi(color2)));
     };
 
     const binaryArrayToString = (binaryArray) => {
@@ -90,13 +90,13 @@ const App = () => {
             <div className="horizontal-input-container">
                 <div className="centered">
                     <label>색상 1</label>
-                    <GithubPicker color={color1} onChangeComplete={(color) => handleColor1Change(color)} colors={allowedColors} triangle={"hide"}/>
+                    <GithubPicker color={color1} onChangeComplete={(color) => handleColor1Change(color)} colors={ColorConverter.allowedColors} triangle={"hide"}/>
 
 
                 </div>
                 <div className="centered">
                     <label>색상 2</label>
-                    <GithubPicker color={color2} onChangeComplete={(color) => handleColor2Change(color)} colors={allowedColors} triangle={"hide"} />
+                    <GithubPicker color={color2} onChangeComplete={(color) => handleColor2Change(color)} colors={ColorConverter.allowedColors} triangle={"hide"} />
                 </div>
             </div>
             <div className="centered">
