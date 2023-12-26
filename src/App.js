@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import { GithubPicker } from 'react-color';
 import './App.css';
-import StringConverter from "./core/StringConverter";
-import ColorConverter from "./core/ColorConverter";
+
+const StringConverter =  require('./StringConverter');
+const ColorConverter =  require('./ColorConverter');
 
 const App = () => {
     const [bannerText, setBannerText] = useState('');
