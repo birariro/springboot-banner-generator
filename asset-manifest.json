@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/springboot-banner-generator/static/css/main.0cab7f88.css",
+    "main.js": "/springboot-banner-generator/static/js/main.73e4b280.js",
+    "index.html": "/springboot-banner-generator/index.html",
+    "main.0cab7f88.css.map": "/springboot-banner-generator/static/css/main.0cab7f88.css.map",
+    "main.73e4b280.js.map": "/springboot-banner-generator/static/js/main.73e4b280.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0cab7f88.css",
+    "static/js/main.73e4b280.js"
+  ]
+}
