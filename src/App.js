@@ -76,6 +76,7 @@ const App = () => {
 
     return (
         <div className="container">
+            <div className="title">SpringBoot Banner Generator</div>
             <div className="vertical-input">
                 <input
                     type="text"
@@ -106,6 +107,10 @@ const App = () => {
             <div>
                 <h2 hidden={!fileText.trim()}>Preview</h2>
                 <pre>{outputText}</pre>
+            </div>
+            <div className="description" hidden={!fileText.trim()}>
+                다운로드한 파일을
+                'src/main/resources' 에 추가
             </div>
         </div>
     );
