@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/springboot-banner-generator/static/css/main.2df9cbf7.css",
-    "main.js": "/springboot-banner-generator/static/js/main.313e260c.js",
+    "main.js": "/springboot-banner-generator/static/js/main.aa35e81e.js",
     "index.html": "/springboot-banner-generator/index.html",
     "main.2df9cbf7.css.map": "/springboot-banner-generator/static/css/main.2df9cbf7.css.map",
-    "main.313e260c.js.map": "/springboot-banner-generator/static/js/main.313e260c.js.map"
+    "main.aa35e81e.js.map": "/springboot-banner-generator/static/js/main.aa35e81e.js.map"
   },
   "entrypoints": [
     "static/css/main.2df9cbf7.css",
-    "static/js/main.313e260c.js"
+    "static/js/main.aa35e81e.js"
   ]
 }
