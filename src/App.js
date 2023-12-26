@@ -3,22 +3,24 @@
 import React, { useState } from 'react';
 import { GithubPicker } from 'react-color';
 import './App.css';
-import {StringToBinary} from "./core/BinaryArt";
-import {colorToAnsi} from "./core/ColorConverter";
+import {drawColor, StringToBinary} from "./core/StringConverter";
+import {allowedColors,colorToSpringAnsi} from "./core/ColorConverter";
 
 const App = () => {
     const [bannerText, setBannerText] = useState('');
     const [color1, setColor1] = useState('#000000');
     const [color2, setColor2] = useState('#ffffff');
     const [outputText, setOutputText] = useState('');
+    const [fileText, setFileText] = useState('');
+
 
     const handleBannerTextChange = (e) => {
-        // 영문자만 허용하는 정규식
-        const regex = /^[a-zA-Z]*$/;
-        const inputValue = e.target.value;
 
-        // 입력 값이 정규식과 일치할 때만 값을 업데이트
+        const regex = /^[a-zA-Z]*$/;
+        let inputValue = e.target.value;
+
         if (regex.test(inputValue) || inputValue === '') {
+            inputValue = inputValue.toUpperCase();
             setBannerText(inputValue);
         }
     };
@@ -33,33 +35,34 @@ const App = () => {
 
     const handleGenerateOutput = () => {
 
+        if(bannerText.trim().length == 0){
+            alert("input plz")
+        }
         const generatedOutput = `배너 텍스트: ${bannerText}, 색상 1: ${color1}, 색상 2: ${color2}`;
         console.log(generatedOutput);
-        console.log(`배너 텍스트: ${bannerText}, 색상 1: ${colorToAnsi(color1)}, 색상 2: ${colorToAnsi(color2)}`);
         let binaryArray = StringToBinary(bannerText);
-        console.log(binaryArray);
+        let _output = binaryArrayToString(binaryArray);
 
-        let binaryOutput = '';
+        setOutputText(_output);
+        setFileText(drawColor(_output,colorToSpringAnsi(color1),colorToSpringAnsi(color2)));
+    };
+
+    const binaryArrayToString = (binaryArray) => {
+        let output = '';
         for (const binary of binaryArray) {
             let binaryString = '';
             for (const binaryBit of binary) {
                 binaryString += binaryBit;
             }
-            console.log(binaryString);
-            binaryOutput += binaryString + '\n';
+            output += binaryString + '\n';
         }
-
-        setOutputText('\n\n' + binaryOutput);
-    };
-
+        return output;
+    }
     const handleDownload = () => {
-        // Blob을 사용하여 파일 생성
-        const blob = new Blob([outputText], { type: 'text/plain' });
 
-        // Blob을 URL로 변환
+        const blob = new Blob([fileText], { type: 'text/plain' });
+
         const url = URL.createObjectURL(blob);
-
-        // 다운로드 링크 생성 및 클릭
         const a = document.createElement('a');
         a.href = url;
         a.download = 'banner.txt';
@@ -79,27 +82,29 @@ const App = () => {
                     id="bannerText"
                     value={bannerText}
                     onChange={handleBannerTextChange}
-                    placeholder="배너 텍스트를 입력하세요"
+                    placeholder="영문 배너 텍스트를 입력하세요"
                     style={{ width: '100%', padding: '10px' }}
                 />
             </div>
             <div className="horizontal-input-container">
                 <div className="centered">
                     <label>색상 1</label>
-                    <GithubPicker color={color1} onChangeComplete={(color) => handleColor1Change(color)} />
+                    <GithubPicker color={color1} onChangeComplete={(color) => handleColor1Change(color)} colors={allowedColors} triangle={"hide"}/>
+
+
                 </div>
                 <div className="centered">
                     <label>색상 2</label>
-                    <GithubPicker color={color2} onChangeComplete={(color) => handleColor2Change(color)} />
+                    <GithubPicker color={color2} onChangeComplete={(color) => handleColor2Change(color)} colors={allowedColors} triangle={"hide"} />
                 </div>
             </div>
             <div className="centered">
-                <button onClick={handleGenerateOutput}>결과 생성</button>
+                <button onClick={handleGenerateOutput}>Generate</button>
                 <span style={{ margin: '0 10px' }}></span>
-                <button onClick={handleDownload}>다운로드</button>
+                <button onClick={handleDownload} disabled={!fileText.trim()}>Download</button>
             </div>
             <div>
-                <h2>Preview</h2>
+                <h2 hidden={!fileText.trim()}>Preview</h2>
                 <pre>{outputText}</pre>
             </div>
         </div>

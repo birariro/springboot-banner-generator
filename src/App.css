@@ -10,7 +10,10 @@ body {
 
 .container {
   text-align: center;
-  width: 300px; /* 필요에 따라 조절하세요 */
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .vertical-input {
@@ -29,6 +32,12 @@ body {
   text-align: center;
 }
 
+
+
 button {
   margin-top: 10px;
+}
+pre {
+  display: flex;
+  justify-content: center; /* 중앙 정렬을 추가합니다. */
 }
