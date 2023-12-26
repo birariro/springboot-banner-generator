@@ -1,11 +1,10 @@
-// App.js
 
 import React, { useState } from 'react';
 import { GithubPicker } from 'react-color';
 import './App.css';
 
-const StringConverter =  require('./StringConverter');
-const ColorConverter =  require('./ColorConverter');
+const StringConverter =  require('./core/StringConverter');
+const ColorConverter =  require('./core/ColorConverter');
 
 const App = () => {
     const [bannerText, setBannerText] = useState('');
@@ -39,7 +38,7 @@ const App = () => {
         if(bannerText.trim().length == 0){
             alert("input plz")
         }
-        const generatedOutput = `배너 텍스트: ${bannerText}, 색상 1: ${color1}, 색상 2: ${color2}`;
+        const generatedOutput = `banner text: ${bannerText}, first color: ${color1}, second color: ${color2}`;
         console.log(generatedOutput);
         let binaryArray = StringConverter.StringToBinary(bannerText);
         let _output = binaryArrayToString(binaryArray);
@@ -90,13 +89,13 @@ const App = () => {
             </div>
             <div className="horizontal-input-container">
                 <div className="centered">
-                    <label>색상 1</label>
+                    <label>first color</label>
                     <GithubPicker color={color1} onChangeComplete={(color) => handleColor1Change(color)} colors={ColorConverter.allowedColors} triangle={"hide"}/>
 
 
                 </div>
                 <div className="centered">
-                    <label>색상 2</label>
+                    <label>second color</label>
                     <GithubPicker color={color2} onChangeComplete={(color) => handleColor2Change(color)} colors={ColorConverter.allowedColors} triangle={"hide"} />
                 </div>
             </div>
@@ -106,7 +105,6 @@ const App = () => {
                 <button onClick={handleDownload} disabled={!fileText.trim()}>Download</button>
             </div>
             <div>
-                <h2 hidden={!fileText.trim()}>Preview</h2>
                 <pre>{outputText}</pre>
             </div>
             <div className="description" hidden={!fileText.trim()}>

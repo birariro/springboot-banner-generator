@@ -55,6 +55,7 @@ button {
   margin-top: 10px;
 }
 pre {
+  margin-top: 40px;
   display: flex;
   justify-content: center;
 }
