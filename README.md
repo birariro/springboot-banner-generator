@@ -7,6 +7,15 @@
 </p>
 
 
-<p align="center">
-    <img src="https://github.com/birariro/springboot-banner-generator/blob/main/img/result.png?raw=true"/>
+
+## example
+
+ADMIN
+<p align="center" >
+    <img src="https://github.com/birariro/springboot-banner-generator/blob/main/img/result1.png?raw=true"/>
+</p>
+
+SPRINGBOOT
+<p align="center" >
+    <img src="https://github.com/birariro/springboot-banner-generator/blob/main/img/result2.png?raw=true"/>
 </p>
