@@ -91,7 +91,7 @@ const App = () => {
                             value={bannerText}
                             onChange={handleBannerTextChange}
                             placeholder="Input Only English Text"
-                            style={{ width: '100%', padding: '10px' }}
+                            style={{ width: '90%', padding: '10px' }}
                         />
                     </div>
                     <div className="horizontal-input-container">

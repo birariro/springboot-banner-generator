@@ -1,16 +1,20 @@
-
+/* 공통 스타일 */
 body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: auto;
+
   margin: 0;
 }
+
 .full-container {
+  padding-top: 20%;
   display: flex;
   width: auto;
   justify-content: center;
 }
+
 .container {
   text-align: center;
   align-items: center;
@@ -18,7 +22,6 @@ body {
   flex-direction: column;
   max-width: 550px;
 }
-
 
 .vertical-input {
   margin-bottom: 10px;
@@ -31,15 +34,18 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
 .button-container {
   padding-top: 20px;
   display: flex;
   justify-content: center;
 }
+
 .centered {
   margin-top: 10px;
   align-items: center;
 }
+
 /* 타이틀 스타일 */
 .title {
   font-size: 24px;
@@ -56,12 +62,12 @@ body {
 button {
   margin-top: 10px;
 }
+
 pre {
   margin-top: 40px;
   display: flex;
   justify-content: center;
 }
-
 
 .description {
   display: flex;
@@ -73,7 +79,6 @@ pre {
   margin-top: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 
 .generate-button,
 .download-button {
@@ -104,8 +109,6 @@ pre {
   cursor: not-allowed;
 }
 
-
-
 body {
   margin: 0;
   padding: 0;
@@ -117,9 +120,9 @@ body {
   display: flex;
   justify-content: center;
 }
+
 .terminal {
   min-width: 400px;
-
   padding-bottom: 30px;
   background-color: #2d2d2d;
   border: 2px solid #808080;
@@ -179,4 +182,48 @@ body {
 
 .content::-webkit-scrollbar-track {
   background-color: #333333;
+}
+
+/* 모바일에서도 적당한 크기로 보이도록 폰트 크기 등을 조절 */
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 20px; /* 예시로 폰트 크기 조절 */
+  }
+
+  .description {
+    padding: 10px; /* 예시로 여백을 줄임 */
+  }
+
+  .container {
+    max-width: 250px;
+  }
+  .horizontal-input-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 250px;
+  }
+  .centered {
+    max-width: 250px;
+  }
+
+  .description {
+    display: flex;
+    text-align: center;
+    white-space: pre-wrap;
+  }
+  .terminal {
+    min-width: 200px;
+    background-color: #2d2d2d;
+    border: 2px solid #808080;
+    border-radius: 10px;
+
+  }
+
+  .content {
+    color: #ffffff;
+    text-align: center; /* 왼쪽 정렬 스타일 추가 */
+    white-space: pre-wrap; /* 공백 및 줄 바꿈 유지 */
+  }
 }
