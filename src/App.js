@@ -16,7 +16,7 @@ const App = () => {
 
     const handleBannerTextChange = (e) => {
 
-        const regex = /^[a-zA-Z]*$/;
+        const regex = /^[a-zA-Z\s]*$/; // 수정된 정규식
         let inputValue = e.target.value;
 
         if (regex.test(inputValue) || inputValue === '') {
@@ -38,8 +38,8 @@ const App = () => {
         if(bannerText.trim().length == 0){
             alert("input plz")
         }
-        const generatedOutput = `banner text: ${bannerText}, first color: ${color1}, second color: ${color2}`;
-        console.log(generatedOutput);
+
+        console.log(`banner text: ${bannerText}, first color: ${color1}, second color: ${color2}`);
         let binaryArray = StringConverter.StringToBinary(bannerText);
         let _output = binaryArrayToString(binaryArray);
 
