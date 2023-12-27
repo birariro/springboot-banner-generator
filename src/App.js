@@ -40,8 +40,8 @@ const App = () => {
         if(bannerText.trim().length === 0){
             alert("input plz")
         }
-
         console.log(`banner text: ${bannerText}, first color: ${color1}, second color: ${color2}`);
+
         let binaryArray = StringConverter.StringToBinary(bannerText);
         let _output = binaryArrayToString(binaryArray);
 
@@ -79,43 +79,47 @@ const App = () => {
     return (
         <div>
             <Header />
-        <div className="container">
+            <div className="container">
 
-            <div className="title">SpringBoot Banner Generator</div>
-            <div className="vertical-input">
-                <input
-                    type="text"
-                    id="bannerText"
-                    value={bannerText}
-                    onChange={handleBannerTextChange}
-                    placeholder="Input Only English Text"
-                    style={{ width: '100%', padding: '10px' }}
-                />
-            </div>
-            <div className="horizontal-input-container">
-                <div className="centered">
-                    <label>first color</label>
-                    <GithubPicker color={color1} onChangeComplete={(color) => handleColor1Change(color)} colors={ColorConverter.allowedColors} triangle={"hide"}/>
+                <div className="title">SpringBoot Banner Generator</div>
+                <div className="vertical-input">
+                    <input
+                        type="text"
+                        id="bannerText"
+                        value={bannerText}
+                        onChange={handleBannerTextChange}
+                        placeholder="Input Only English Text"
+                        style={{ width: '100%', padding: '10px' }}
+                    />
+                </div>
+                <div className="horizontal-input-container">
+                    <div className="centered">
+                        <label className="centered-label">first color</label>
+                        <GithubPicker color={color1} onChangeComplete={(color) => handleColor1Change(color)} colors={ColorConverter.allowedColors} triangle={"hide"}/>
 
+                    </div>
+                    <div className="centered">
+                        <label className="centered-label">second color</label>
+                        <GithubPicker color={color2} onChangeComplete={(color) => handleColor2Change(color)} colors={ColorConverter.allowedColors} triangle={"hide"} />
+                    </div>
                 </div>
                 <div className="centered">
-                    <label>second color</label>
-                    <GithubPicker color={color2} onChangeComplete={(color) => handleColor2Change(color)} colors={ColorConverter.allowedColors} triangle={"hide"} />
+                    <button className="generate-button" onClick={handleGenerateOutput}>
+                        Generate
+                    </button>
+                    <span style={{ margin: '0 10px' }}></span>
+                    <button className="download-button" onClick={handleDownload} disabled={!fileText.trim()}>
+                        Download
+                    </button>
+                </div>
+                <div>
+                    <pre>{outputText}</pre>
+                </div>
+                <div className="description" hidden={!fileText.trim()}>
+                    The downloaded file path is
+                    'src/main/resources'
                 </div>
             </div>
-            <div className="centered">
-                <button onClick={handleGenerateOutput}>Generate</button>
-                <span style={{ margin: '0 10px' }}></span>
-                <button onClick={handleDownload} disabled={!fileText.trim()}>Download</button>
-            </div>
-            <div>
-                <pre>{outputText}</pre>
-            </div>
-            <div className="description" hidden={!fileText.trim()}>
-                The downloaded file path is
-                'src/main/resources'
-            </div>
-        </div>
         </div>
     );
 };

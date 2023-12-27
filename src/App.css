@@ -32,10 +32,11 @@ body {
 
 .horizontal-input-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .centered {
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -47,7 +48,7 @@ body {
   margin-bottom: 20px;
 }
 
-.centered label {
+.centered-label {
   margin-bottom: 10px;
 }
 
@@ -67,4 +68,34 @@ pre {
   padding: 20px;
   margin-top: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.generate-button,
+.download-button {
+  background-color: #4caf50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.generate-button:hover,
+.download-button:hover {
+  background-color: #45a049;
+  /* Darker Green */
+}
+
+.download-button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
 }

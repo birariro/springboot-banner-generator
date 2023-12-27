@@ -19,7 +19,7 @@ const Header = () => {
                 <img
                     src={process.env.PUBLIC_URL + image}
                     alt="GitHub"
-                    style={{ maxWidth: '50px', maxHeight: '50px' }}  // 크기 조절 스타일 추가
+                    style={{ maxWidth: '40px', maxHeight: '40px' }}  // 크기 조절 스타일 추가
                 />
             </button>
         </header>
