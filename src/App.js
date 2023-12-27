@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { GithubPicker } from 'react-color';
 import './App.css';
 
+import Header from './Header';
+
 const StringConverter =  require('./core/StringConverter');
 const ColorConverter =  require('./core/ColorConverter');
 
@@ -35,7 +37,7 @@ const App = () => {
 
     const handleGenerateOutput = () => {
 
-        if(bannerText.trim().length == 0){
+        if(bannerText.trim().length === 0){
             alert("input plz")
         }
 
@@ -75,7 +77,10 @@ const App = () => {
     };
 
     return (
+        <div>
+            <Header />
         <div className="container">
+
             <div className="title">SpringBoot Banner Generator</div>
             <div className="vertical-input">
                 <input
@@ -110,6 +115,7 @@ const App = () => {
                 The downloaded file path is
                 'src/main/resources'
             </div>
+        </div>
         </div>
     );
 };
