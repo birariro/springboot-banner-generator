@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
 import { GithubPicker } from 'react-color';
+import { Prompt } from "react-prompt-viewer";
 import './App.css';
 
 import Header from './Header';
-import Terminal from "./Terminal";
 
 const StringConverter =  require('./core/StringConverter');
 const ColorConverter =  require('./core/ColorConverter');
@@ -119,7 +119,7 @@ const App = () => {
                 </div>
             </div>
             <div className="terminal-container">
-                {outputText !== '' && <Terminal outputText={outputText} />}
+                {outputText !== '' && <Prompt content={outputText} />}
             </div>
             {fileText !=='' && <div className="description" >
                 The downloaded file path is
